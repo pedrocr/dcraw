@@ -1741,6 +1741,8 @@ int identify(char *fname)
     strcpy (model,"E995");
   else if (fsize == 5865472)
     strcpy (model,"E4500");
+  else if (fsize == 5869568)
+    strcpy (model,"E4300");
 
   /* Remove excess wordage */
   if (!strncmp(make,"NIKON",5) || !strncmp(make,"Canon",5))
@@ -1905,6 +1907,11 @@ int identify(char *fname)
     width  = 2064;
     filters = 0xb4b4b4b4;
     goto coolpix;
+  } else if (!strcmp(model,"E4300")) {
+    height = 1710;
+    width  = 2288;
+    filters = 0x16161616;
+    read_crw = nikon_read_crw;
   } else if (!strcmp(model,"E4500")) {
     height = 1708;
     width  = 2288;
@@ -2299,7 +2306,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.41"
+    "\nRaw Photo Decoder v4.42"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
