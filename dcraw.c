@@ -2354,10 +2354,7 @@ nucore:
     load_raw = canon_compressed_load_raw;
     pre_mul[0] = 1.785;
     pre_mul[2] = 1.266;
-  } else if (!strcmp(model,"PowerShot G2")  ||
-	     !strcmp(model,"PowerShot G3")  ||
-	     !strcmp(model,"PowerShot S40") ||
-	     !strcmp(model,"PowerShot S45")) {
+  } else if (is_canon && raw_width == 2376) {
     height = 1720;
     width  = 2312;
     filters = 0x94949494;
@@ -2366,8 +2363,7 @@ nucore:
       canon_rgb_coeff();
     pre_mul[0] = 1.965;
     pre_mul[2] = 1.208;
-  } else if (!strcmp(model,"PowerShot G5")  ||
-	     !strcmp(model,"PowerShot S50")) {
+  } else if (is_canon && raw_width == 2672) {
     height = 1960;
     width  = 2616;
     filters = 0x94949494;
@@ -2381,11 +2377,7 @@ nucore:
     load_raw = canon_compressed_load_raw;
     pre_mul[0] = 1.592;
     pre_mul[2] = 1.261;
-  } else if (!strcmp(model,"EOS D60") ||
-	     !strcmp(model,"EOS 10D") ||
-	     !strcmp(model,"EOS 300D DIGITAL") ||
-	     !strcmp(model,"EOS Kiss Digital") ||
-	     !strcmp(model,"EOS DIGITAL REBEL")) {
+  } else if (is_canon && raw_width == 3152) {
     height = 2056;
     width  = 3088;
     filters = 0x94949494;
@@ -2932,7 +2924,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v5.07"
+    "\nRaw Photo Decoder v5.08"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
