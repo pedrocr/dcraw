@@ -2082,6 +2082,8 @@ void parse_ciff(int offset, int length)
     if (type == 0x102a) {		/* Find the White Balance index */
       fseek (ifp, aoff+14, SEEK_SET);	/* 0=auto, 1=daylight, 2=cloudy ... */
       wbi = fget2(ifp);
+      if (!strcmp(model,"Canon EOS DIGITAL REBEL") && wbi == 6)
+	wbi++;
     }
     if (type == 0x102c) {		/* Get white balance (G2) */
       if (!strcmp(model,"Canon PowerShot G1") ||
