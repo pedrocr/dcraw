@@ -80,6 +80,7 @@ float gamma_val=0.8, bright=1.0;
 #define WFLAGS O_WRONLY | O_CREAT | O_TRUNC | O_BINARY
 
 typedef unsigned char uchar;
+typedef unsigned short ushort;
 
 /* This array holds the GMCY values for each pixel */
 
