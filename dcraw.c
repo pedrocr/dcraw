@@ -865,6 +865,11 @@ void kodak_compressed_read_crw()
 	  blen[i++] = c >> 4;
 	}
 	bitbuf = bits = pred[0] = pred[1] = 0;
+	if (len % 8 == 4) {
+	  bitbuf  = fgetc(ifp) << 8;
+	  bitbuf += fgetc(ifp);
+	  bits = 16;
+	}
       }
       len = blen[col & 255];		/* Number of bits for this pixel */
       if (bits < len) {			/* Got enough bits in the buffer? */
@@ -2022,6 +2027,9 @@ coolpix:
     } else if (!strncmp(model2,"PB645H",6)) {
       pre_mul[0] = 1.20;
       pre_mul[2] = 1.52;
+    } else if (!strcmp(model,"DCS Pro 14n")) {
+      pre_mul[0] = 0.9932;
+      pre_mul[2] = 1.1288;
     }
     switch (tiff_data_compression) {
       case 0:				/* No compression */
@@ -2291,7 +2299,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.40"
+    "\nRaw Photo Decoder v4.41"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
