@@ -3023,7 +3023,7 @@ nucore:
   filters = 0x94949494;
   black = is_cmy = is_foveon = use_coeff = 0;
   xmag = ymag = 1;
-  rgb_max = 0x4000;
+  rgb_max = 0x3fff;
 
 /*  We'll try to decode anything from Canon or Nikon. */
 
