@@ -2163,6 +2163,13 @@ nucore:
     pre_mul[0] = 1.66;
     pre_mul[2] = 1.13;
     rgb_max = 14464;
+  } else if (!strcmp(model,"EOS D2000C")) {
+    height = raw_height;
+    width  = raw_width;
+    filters = 0x61616161;
+    load_raw = lossless_jpeg_load_raw;
+    black = 800;
+    pre_mul[2] = 1.25;
   } else if (!strcmp(model,"D1")) {
     height = 1324;
     width  = 2012;
@@ -2635,7 +2642,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.71"
+    "\nRaw Photo Decoder v4.72"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
