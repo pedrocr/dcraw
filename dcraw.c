@@ -1406,7 +1406,7 @@ void write_psd(FILE *ofp)
   memcpy (head+14, hw, sizeof hw);
   fwrite (head, 40, 1, ofp);
 
-  psize = hw[0] * hw[1];
+  psize = (height-trim*2) * (width-trim*2);
   buffer = calloc (6, psize);
   if (!buffer) {
     perror("psd calloc failed");
@@ -1515,7 +1515,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf(stderr,
-    "\nCanon PowerShot Converter v3.00"
+    "\nCanon PowerShot Converter v3.01"
 #ifdef LJPEG_DECODE
     " with EOS-1D support"
 #endif
