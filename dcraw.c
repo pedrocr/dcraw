@@ -895,9 +895,7 @@ void scale_colors()
 #endif
       val *= pre_mul[c];
       if (val < 0) val = 0;
-      if (val > rgb_max && (!is_rgb || (c & 1) ||
-	  image[row*width+col+(col ? -1:1)][FC(row,col+1)]+256 > rgb_max))
-	val = rgb_max;
+      if (val > rgb_max) val = rgb_max;
       image[row*width+col][c] = val;
     }
 #ifdef STATS
@@ -1987,7 +1985,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.25"
+    "\nRaw Photo Decoder v4.26"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
