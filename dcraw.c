@@ -809,6 +809,8 @@ open_and_id(char *fname)
     width  = 2088;
     filters = 0xb4b4b4b4;
     read_crw = g1_read_crw;
+    rgb_mul[0] = 1.469;
+    rgb_mul[2] = 1.327;
   } else if (!strcmp(name,"Canon PowerShot S30")) {
     height = 1550;
     width  = 2088;
@@ -1081,7 +1083,7 @@ main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf(stderr,
-    "\nCanon PowerShot Converter v2.51"
+    "\nCanon PowerShot Converter v2.52"
     "\nby Dave Coffin (dcoffin@shore.net)"
     "\n\nUsage:  %s [options] file1.crw file2.crw ...\n"
     "\nValid options:"
