@@ -815,7 +815,7 @@ void olympus2_read_crw()
       getbits(-1);
     }
     for (col=0; col < width; col++)
-      image[row*width+col][FC(row,col)] = getbits(12);
+      image[row*width+col][FC(row,col)] = getbits(12) << 2;
   }
 }
 
