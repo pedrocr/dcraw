@@ -3089,7 +3089,7 @@ coolpix:
     pre_mul[0] = 1.1629;
     pre_mul[2] = 1.3556;
     rgb_max = 0xffff;
-  } else if (!strcmp(model,"DIGILUX 2")) {
+  } else if (!strcmp(model,"DIGILUX 2") || !strcmp(model,"DMC-LC1")) {
     height = 1928;
     width  = 2568;
     data_offset = 1024;
