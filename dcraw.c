@@ -3947,7 +3947,7 @@ dimage_z2:
       data_offset += 4352*2*1444;
     filters = 0x49494949;
     load_raw = fuji_s3_load_raw;
-    maximum = 0xffff;
+    maximum = 0x3dfd;
   } else if (!strcmp(model,"FinePix S5000")) {
     height = 2499;
     width  = 2500;
