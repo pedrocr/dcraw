@@ -28,6 +28,8 @@
 
 #ifdef WIN32
 #include <winsock2.h>
+#pragma comment(lib, "ws2_32.lib")
+#define strcasecmp stricmp
 typedef __int64 INT64;
 #else
 #include <netinet/in.h>
