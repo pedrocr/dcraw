@@ -2581,8 +2581,8 @@ nucore:
     pre_mul[2] = 1.095;
   } else if (!strcmp(model,"D1H")) {
     filters = 0x16161616;
-    pre_mul[0] = 1.347;
-    pre_mul[2] = 3.279;
+    pre_mul[0] = 2.301;
+    pre_mul[2] = 1.129;
   } else if (!strcmp(model,"D1X")) {
     width  = 4024;
     filters = 0x16161616;
