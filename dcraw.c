@@ -3017,8 +3017,8 @@ nucore:
     pre_mul[2] = 1.2;
   } else if (!strcmp(model,"D70")) {
     filters = 0x16161616;
-    pre_mul[0] = 2.8;
-    pre_mul[2] = 1.2;
+    pre_mul[0] = 2.043;
+    pre_mul[2] = 1.625;
   } else if (!strcmp(model,"E950")) {
     height = 1203;
     width  = 1616;
