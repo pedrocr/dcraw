@@ -400,7 +400,7 @@ unsigned getbits(int nbits)
 void decompress(ushort *outbuf, int count)
 {
   struct decode *decode, *dindex;
-  int i, leaf, len, sign, diff, diffbuf[64];
+  int i, leaf, len, diff, diffbuf[64];
   static int carry, pixel, base[2];
 
   if (!outbuf) {			/* Initialize */
@@ -424,12 +424,9 @@ void decompress(ushort *outbuf, int count)
       i  += leaf >> 4;
       len = leaf & 15;
       if (len == 0) continue;
-      sign=(getbits(1));	/* 1 is positive, 0 is negative */
-      diff=getbits(len-1);
-      if (sign)
-	diff += 1 << (len-1);
-      else
-	diff += (-1 << len) + 1;
+      diff = getbits(len);
+      if ((diff & (1 << (len-1))) == 0)
+	diff -= (1 << len) - 1;
       if (i < 64) diffbuf[i] = diff;
     }
     diffbuf[0] += carry;
@@ -3172,7 +3169,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v5.53"
+    "\nRaw Photo Decoder v5.54"
     "\nby Dave Coffin, dcoffin a cybercom o net"
     "\n\nUsage:  %s [options] file1 file2 ...\n"
     "\nValid options:"
