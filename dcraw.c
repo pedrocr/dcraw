@@ -1831,6 +1831,12 @@ void bad_pixels()
     free (fname);
     if (errno != ERANGE) return;
   }
+#ifdef WIN32
+  if (fname[1] == ':')
+    memmove (fname, fname+2, len-2);
+  for (cp=fname; *cp; cp++)
+    if (*cp == '\\') *cp = '/';
+#endif
   cp = fname + strlen(fname);
   if (cp[-1] == '/') cp--;
   while (*fname == '/') {
