@@ -2349,7 +2349,8 @@ nucore:
     pre_mul[2] = 1.261;
   } else if (!strcmp(model,"EOS D60") ||
 	     !strcmp(model,"EOS 10D") ||
-	     !strcmp(model,"EOS 300D DIGITAL")) {
+	     !strcmp(model,"EOS 300D DIGITAL") ||
+	     !strcmp(model,"EOS DIGITAL REBEL")) {
     height = 2056;
     width  = 3088;
     filters = 0x94949494;
