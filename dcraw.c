@@ -1138,7 +1138,8 @@ void write_ppm(FILE *ofp)
     for (x=1; x < width-1; x++)
     {
       get_rgb(rgb,image[y*width+x]);
-      scale = mul * pow(rgb[3]/max2,expo);
+/* In some math libraries, pow(0,expo) doesn't return zero */
+      scale = rgb[3] ? mul * pow(rgb[3]/max2,expo) : 0;
 
       for (c=0; c < 3; c++)
       {
@@ -1298,7 +1299,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf(stderr,
-    "\nCanon PowerShot Converter v2.80"
+    "\nCanon PowerShot Converter v2.81"
 #ifdef LJPEG_DECODE
     " with EOS-1D support"
 #endif
