@@ -2845,6 +2845,10 @@ nucore:
     left_margin = 64;
     pre_mul[0] = 2.242;
     pre_mul[2] = 1.245;
+    if (!strcmp(model,"EOS Kiss Digital")) {
+      pre_mul[0] = 1.882;
+      pre_mul[2] = 1.094;
+    }
     rgb_max = 16000;
   } else if (is_canon && raw_width == 3344) {
     height = 2472;
