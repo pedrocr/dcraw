@@ -2045,6 +2045,7 @@ int identify(char *fname)
     filters = 0xb4b4b4b4;
     colors = 4;
     read_crw = nikon_read_crw;
+    nikon_e950_coeff();
     pre_mul[0] = 1.196;
     pre_mul[1] = 1.246;
     pre_mul[2] = 1.018;
@@ -2453,7 +2454,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.47"
+    "\nRaw Photo Decoder v4.48"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
