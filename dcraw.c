@@ -2291,7 +2291,7 @@ void CLASS get_timestamp()
     return;
   t.tm_year -= 1900;
   t.tm_mon -= 1;
-  putenv ("TZ=");		/* Remove this to assume local time */
+  putenv ("TZ=UTC");		/* Remove this to assume local time */
   if ((ts = mktime(&t)) > 0)
     timestamp = ts;
 }
