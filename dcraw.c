@@ -607,9 +607,9 @@ void PmPutRow(ushort **buf, int numComp, int numCol, int row)
   if (make[0] == 'C') trick=2;		/* Canon */
   row *= trick;
   for (r = row; r < row+trick; r++)
-    for (col=0; col < width; ) {
-      image[r*width+col++][FC(r,col)] = buf[0][0] << 2;
-      image[r*width+col++][FC(r,col)] = buf[0][1] << 2;
+    for (col=0; col < width; col+=2) {
+      image[r*width+col+0][FC(r,col+0)] = buf[0][0] << 2;
+      image[r*width+col+1][FC(r,col+1)] = buf[0][1] << 2;
       buf++;
     }
 }
