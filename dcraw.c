@@ -1036,7 +1036,6 @@ int open_and_id(char *fname)
     read_crw = nikon_d1x_read_crw;
     rgb_mul[0] = 1.910;
     rgb_mul[2] = 1.220;
-    return 0;
   } else {
     fprintf(stderr,"Sorry, the %s is not yet supported.\n",name);
     return 1;
