@@ -1,6 +1,6 @@
 /*
    Raw Photo Decoder (formerly "Canon PowerShot Converter")
-   Copyright 1997-2003 by Dave Coffin <dcoffin@shore.net>
+   Copyright 1997-2003 by Dave Coffin, dcoffin a cybercom o net
 
    This is a portable ANSI C program to convert raw image files from
    any digital camera into PPM format.  TIFF and CIFF parsing are
@@ -17,7 +17,7 @@
    The Canon EOS-1D and some Kodak cameras compress their raw data
    with lossless JPEG.  To read such images, you must also download:
 
-	http://www.shore.net/~dcoffin/powershot/ljpeg_decode.tar.gz
+	http://www.cybercom.net/~dcoffin/dcraw/ljpeg_decode.tar.gz
  */
 
 #include <math.h>
@@ -2891,7 +2891,7 @@ int main(int argc, char **argv)
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
-    "\nby Dave Coffin (dcoffin@shore.net)"
+    "\nby Dave Coffin, dcoffin a cybercom o net"
     "\n\nUsage:  %s [options] file1 file2 ...\n"
     "\nValid options:"
     "\n-i        Identify files but don't decode them"
