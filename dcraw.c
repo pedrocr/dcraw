@@ -3272,7 +3272,8 @@ fuji_s7000:
     if (!strncmp(model,"DiMAGE A",8)) {
       load_raw = packed_12_load_raw;
       rgb_max = model[8] == '1' ? 15916:16380;
-    } else if (!strncmp(model,"DYNAX",5)) {
+    } else if (!strncmp(model,"DYNAX",5) ||
+	       !strncmp(model,"MAXXUM",6)) {
       load_raw = packed_12_load_raw;
       rgb_max = 16364;
     } else if (!strncmp(model,"DiMAGE G",8)) {
