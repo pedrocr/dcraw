@@ -794,14 +794,14 @@ int CLASS nikon_e2100()
  */
 int CLASS pentax_optio33()
 {
-  int i;
-  char tail[952];
+  int i, sum[] = { 0, 0 };
+  uchar tail[952];
 
   fseek (ifp, -sizeof tail, SEEK_END);
   fread (tail, 1, sizeof tail, ifp);
   for (i=0; i < sizeof tail; i++)
-    if (!tail[i]) return 0;
-  return 1;
+    sum[(i>>2) & 1] += tail[i];
+  return sum[0] < sum[1]*4;
 }
 
 /*
