@@ -3140,7 +3140,8 @@ coolpix:
     filters = 0x16161616;
     pre_mul[0] = 1.700;
     pre_mul[2] = 1.344;
-  } else if (!strcmp(model,"E8700")) {
+  } else if (!strcmp(model,"E8700") ||
+	     !strcmp(model,"E8800")) {
     filters = 0x16161616;
     pre_mul[0] = 2.131;
     pre_mul[2] = 1.300;
@@ -3886,7 +3887,7 @@ int CLASS main (int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder \"dcraw\" v6.07"
+    "\nRaw Photo Decoder \"dcraw\" v6.08"
     "\nby Dave Coffin, dcoffin a cybercom o net"
     "\n\nUsage:  %s [options] file1 file2 ...\n"
     "\nValid options:"
