@@ -1715,6 +1715,7 @@ void nef_parse_exif()
 void parse_tiff(int base)
 {
   int doff, entries, tag, type, len, val, save;
+  char software[64];
 
   tiff_data_offset = 0;
   tiff_data_compression = 0;
@@ -1741,6 +1742,11 @@ void parse_tiff(int base)
 	  break;
 	case 33405:			/* Model2 tag */
 	  fgets (model2, 64, ifp);
+	  break;
+	case 305:			/* Software tag */
+	  fgets (software, 64, ifp);
+	  if (!strncmp(software,"Adobe",5))
+	    model[0] = 0;
 	  break;
 	case 330:			/* SubIFD tag */
 	  if (len > 2) len=2;
@@ -2635,7 +2641,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.74"
+    "\nRaw Photo Decoder v4.75"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
