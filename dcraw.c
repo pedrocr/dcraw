@@ -24,11 +24,12 @@
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <float.h>
+#include <limits.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <values.h>
 
 #ifdef WIN32
 #include <winsock2.h>
