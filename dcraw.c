@@ -971,7 +971,7 @@ void unpacked_load_raw (int order, int rsh)
   ushort *pixel;
   int row, col;
 
-  pixel = calloc (width, sizeof *pixel);
+  pixel = calloc (raw_width, sizeof *pixel);
   merror (pixel, "unpacked_load_raw()");
   for (row=0; row < height; row++) {
     fread (pixel, 2, raw_width, ifp);
