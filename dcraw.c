@@ -1010,13 +1010,18 @@ void second_interpolate()
 
 /*
    Get a 2-byte integer, making no assumptions about CPU byte order.
+   Nor should we assume that the compiler evaluates left-to-right.
  */
 ushort fget2 (FILE *f)
 {
+  register uchar a, b;
+
+  a = fgetc(f);
+  b = fgetc(f);
   if (order == 0x4d4d)		/* "MM" means big-endian */
-    return (fgetc(f) << 8) + fgetc(f);
-  else
-    return fgetc(f) + (fgetc(f) << 8);
+    return (a << 8) + b;
+  else				/* "II" means little-endian */
+    return a + (b << 8);
 }
 
 /*
@@ -1024,10 +1029,16 @@ ushort fget2 (FILE *f)
  */
 int fget4 (FILE *f)
 {
+  register uchar a, b, c, d;
+
+  a = fgetc(f);
+  b = fgetc(f);
+  c = fgetc(f);
+  d = fgetc(f);
   if (order == 0x4d4d)
-    return (fgetc(f) << 24) + (fgetc(f) << 16) + (fgetc(f) << 8) + fgetc(f);
+    return (a << 24) + (b << 16) + (c << 8) + d;
   else
-    return fgetc(f) + (fgetc(f) << 8) + (fgetc(f) << 16) + (fgetc(f) << 24);
+    return a + (b << 8) + (c << 16) + (d << 24);
 }
 
 /*
@@ -1559,7 +1570,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf(stderr,
-    "\nCanon PowerShot Converter v3.05"
+    "\nCanon PowerShot Converter v3.06"
 #ifdef LJPEG_DECODE
     " with EOS-1D support"
 #endif
