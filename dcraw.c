@@ -4108,7 +4108,8 @@ void CLASS write_ppm (FILE *ofp)
 
   ppm = calloc (width-trim*2, 3*xmag);
   merror (ppm, "write_ppm()");
-  for (i=0; i < 0x10000; i++) {
+  scale[0] = 0;
+  for (i=1; i < 0x10000; i++) {
     r = i / white;
     scale[i] = 221.7025 / i * ( !use_gamma ? r :
 	r <= 0.018 ? r*4.5 : pow(r,0.45)*1.099-0.099 );
