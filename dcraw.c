@@ -57,8 +57,8 @@ const float ymul[4] = { 1.0, 1.0, 1.0, 1.0 };
 #define W 1552
 
 #define RED_MUL 1.0
-#define GRN_MUL 0.76
-#define BLU_MUL 0.59
+#define GRN_MUL 0.628
+#define BLU_MUL 0.792
 
 const float ymul[4] = { 1.0, 1.0, 1.0, 1.0 };
 
