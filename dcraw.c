@@ -287,7 +287,7 @@ write_ppm(char *fname)
    Set the maximum to the 96th percentile
 */
   for (val=512, total=0; --val; )
-    if ((total+=histo[val]) > 60000) break;
+    if ((total+=histo[val]) > (int)(W*H*0.11)) break;
   max = val << 10;
   max2 = max*max;
 
