@@ -881,6 +881,7 @@ void scale_colors()
     sum[c] = max[c] = count[c] = 0;
   }
 #endif
+  rgb_max -= black;
   scale = (colors == 3) ? rgb_mul:gmcy_mul;
   for (row=0; row < height; row++)
     for (col=0; col < width; col++) {
@@ -1968,7 +1969,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.20"
+    "\nRaw Photo Decoder v4.21"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
