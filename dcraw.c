@@ -1565,7 +1565,7 @@ void foveon_interpolate()
  */
 void bad_pixels()
 {
-  FILE *fp;
+  FILE *fp=NULL;
   char *fname, *cp, line[128];
   int len, time, row, col, r, c, rad, tot, n, fixed=0;
 
@@ -1576,10 +1576,9 @@ void bad_pixels()
     free (fname);
     if (errno != ERANGE) return;
   }
-  if (*fname != '/') return;
   cp = fname + strlen(fname);
   if (cp[-1] == '/') cp--;
-  while (1) {
+  while (*fname == '/') {
     strcpy (cp, "/.badpixels");
     if ((fp = fopen (fname, "r"))) break;
     if (cp == fname) break;
