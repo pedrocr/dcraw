@@ -2126,7 +2126,8 @@ nucore:
     load_raw = canon_compressed_load_raw;
     pre_mul[0] = 1.965;
     pre_mul[2] = 1.208;
-  } else if (!strcmp(model,"PowerShot S50")) {
+  } else if (!strcmp(model,"PowerShot G5")  ||
+	     !strcmp(model,"PowerShot S50")) {
     height = 1960;
     width  = 2616;
     filters = 0x94949494;
@@ -2643,7 +2644,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v4.80"
+    "\nRaw Photo Decoder v4.81"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
