@@ -3066,7 +3066,7 @@ int main(int argc, char **argv)
       fprintf (stderr, "Will not write an image to the terminal!\n");
       exit(1);
     }
-#ifdef WIN32
+#if defined(WIN32) || defined(DJGPP)
     if (setmode(1,O_BINARY) < 0) {
       perror ("setmode()");
       exit(1);
