@@ -2699,8 +2699,8 @@ coolpix:
     height = 1737;
     width  = 2324;
     load_raw = pentax_optio_s4_load_raw;
-    pre_mul[0] = 2.09;
-    pre_mul[1] = 1.06;
+    pre_mul[0] = 1.308;
+    pre_mul[2] = 1.275;
   } else if (!strcmp(make,"Phase One")) {
     switch (raw_height) {
       case 2060:
