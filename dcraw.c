@@ -2384,6 +2384,7 @@ nucore:
   } else if (!strcmp(model,"EOS D60") ||
 	     !strcmp(model,"EOS 10D") ||
 	     !strcmp(model,"EOS 300D DIGITAL") ||
+	     !strcmp(model,"EOS Kiss Digital") ||
 	     !strcmp(model,"EOS DIGITAL REBEL")) {
     height = 2056;
     width  = 3088;
@@ -2931,7 +2932,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v5.05"
+    "\nRaw Photo Decoder v5.06"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
