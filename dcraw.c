@@ -3070,8 +3070,9 @@ void write_ppm(FILE *ofp)
 /*
    Set the white point to the 99th percentile
  */
+  i = width * height * (strcmp(make,"FUJIFILM") ? 0.01 : 0.005);
   for (val=0x2000, total=0; --val; )
-    if ((total+=histogram[val]) > (int)(width*height*0.01)) break;
+    if ((total += histogram[val]) > i) break;
   max = val << 4;
 
   fprintf (ofp, "P6\n%d %d\n255\n",
@@ -3182,7 +3183,7 @@ int main(int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder v5.45"
+    "\nRaw Photo Decoder v5.46"
 #ifdef LJPEG_DECODE
     " with Lossless JPEG support"
 #endif
