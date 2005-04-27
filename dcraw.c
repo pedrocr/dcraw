@@ -3935,7 +3935,8 @@ canon_cr2:
     pre_mul[0] = 1.18193;
     pre_mul[2] = 1.16452;
     pre_mul[3] = 1.17250;
-  } else if (!strcmp(model,"E990")) {
+  } else if (!strcmp(model,"E880") ||
+	     !strcmp(model,"E990")) {
     if (!timestamp && !nikon_e990()) goto cp_e995;
     height = 1540;
     width  = 2064;
