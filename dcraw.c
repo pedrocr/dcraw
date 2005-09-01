@@ -3055,9 +3055,9 @@ void CLASS ahd_interpolate()
   buffer = malloc (0x40000 + 39*TS*TS);		/* 2752 kB */
   merror (buffer, "ahd_interpolate()");
   cbrt = (void *) buffer;
-  rgb  = (void *) buffer + 0x40000;
-  lab  = (void *) buffer + 0x40000 + 18*TS*TS;
-  homo = (void *) buffer + 0x40000 + 36*TS*TS;
+  rgb  = (void *) (buffer + 0x40000);
+  lab  = (void *) (buffer + 0x40000 + 18*TS*TS);
+  homo = (void *) (buffer + 0x40000 + 36*TS*TS);
 
 /*  Prepare conversion from raw color to CIELab:		*/
   for (i=0; i < 0x10000; i++) {
