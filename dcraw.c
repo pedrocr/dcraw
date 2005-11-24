@@ -182,7 +182,7 @@ struct decode {
  */
 
 #ifndef __GLIBC__
-char *memmem (char *haystack, size_t haystacklen,
+char *my_memmem (char *haystack, size_t haystacklen,
 	      char *needle, size_t needlelen)
 {
   char *c;
@@ -191,6 +191,7 @@ char *memmem (char *haystack, size_t haystacklen,
       return c;
   return NULL;
 }
+#define memmem my_memmem
 #endif
 
 void CLASS merror (void *ptr, char *where)
@@ -3273,6 +3274,7 @@ void CLASS parse_makernote()
     offset = get4();
     fseek (ifp, offset-8, SEEK_CUR);
   } else if (!strncmp (buf,"FUJIFILM",8) ||
+	     !strncmp (buf,"SONY",4) ||
 	     !strcmp  (buf,"Panasonic")) {
     order = 0x4949;
     fseek (ifp,  2, SEEK_CUR);
