@@ -3501,8 +3501,13 @@ int CLASS parse_tiff_ifd (int base, int level)
 	if (type == 3 && len == 1)
 	  cam_mul[(tag-0x11)*2] = get2() / 256.0;
 	break;
+      case 0x24:
+      case 0x25:
+      case 0x26:
+	cam_mul[tag-0x24] = get2();
+	break;
       case 0x27:
-	if (len < 50) break;
+	if (len < 50 || cam_mul[0]) break;
 	fseek (ifp, 12, SEEK_CUR);
 	FORC3 cam_mul[c] = get2();
 	break;
@@ -5837,7 +5842,7 @@ int CLASS main (int argc, char **argv)
   if (argc == 1)
   {
     fprintf (stderr,
-    "\nRaw Photo Decoder \"dcraw\" v7.92"
+    "\nRaw Photo Decoder \"dcraw\" v7.93"
     "\nby Dave Coffin, dcoffin a cybercom o net"
     "\n\nUsage:  %s [options] file1 file2 ...\n"
     "\nValid options:"
