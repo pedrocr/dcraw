@@ -23,7 +23,7 @@
    $Date$
  */
 
-#define VERSION "8.27"
+#define VERSION "8.28"
 
 #define _GNU_SOURCE
 #define _USE_MATH_DEFINES
@@ -6651,6 +6651,8 @@ void CLASS write_ppm_tiff (FILE *ofp)
   ushort *ppm2;
   int i, c, row, col, psize=0, soff, rstep, cstep;
 
+  iheight = height;
+  iwidth  = width;
   if (flip & 4) {
     SWAP(height,width);
     SWAP(ymag,xmag);
