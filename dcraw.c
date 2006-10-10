@@ -3317,7 +3317,7 @@ void CLASS lin_interpolate()
 
    "Interpolation using a Threshold-based variable number of gradients"
 
-   described in http://www-ise.stanford.edu/~tingchen/algodep/vargra.html
+   described in http://scien.stanford.edu/class/psych221/projects/99/tingchen/algodep/vargra.html
 
    I've extended the basic idea to work with non-Bayer filter arrays.
    Gradients are numbered clockwise from NW=0 to W=7.
