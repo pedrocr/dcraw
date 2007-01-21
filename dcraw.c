@@ -23,7 +23,7 @@
    $Date$
  */
 
-#define VERSION "8.52"
+#define VERSION "8.53"
 
 #define _GNU_SOURCE
 #define _USE_MATH_DEFINES
@@ -7083,7 +7083,7 @@ void CLASS write_ppm_tiff (FILE *ofp)
       if (output_bps == 8)
 	   FORCC ppm [col*colors+c] = lut[image[soff][c]];
       else FORCC ppm2[col*colors+c] =     image[soff][c];
-    if (output_bps == 16 && !output_tiff && th.order == 0x4949)
+    if (output_bps == 16 && !output_tiff && htons(0x55aa) != 0x55aa)
       swab (ppm2, ppm2, width*colors*2);
     fwrite (ppm, colors*output_bps/8, width, ofp);
   }
