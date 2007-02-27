@@ -5884,7 +5884,7 @@ nucore:
     height = width - 1;
     pixel_aspect = 1;
   }
-  if (!strcmp(model,"K10D")) {		/* Camera DNGs are not cropped! */
+  if (height == 2624 && width == 3936) { /* Pentax K10D and Samsung GX10 */
     height = 2616;
     width  = 3896;
   }
