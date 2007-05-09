@@ -6690,12 +6690,14 @@ konica_400z:
       left_margin = 4;
       goto fz8_common;
     } else if (width == 3170) {
-      height = 2326;
-      top_margin  = 13;
       left_margin = 18;
-      filters = 0x49494949;
 fz8_common:
       width = 3096;
+      if (height > 2326) {
+	height = 2326;
+	top_margin = 13;
+	filters = 0x49494949;
+      }
       load_raw = &CLASS olympus_e300_load_raw;
       maximum = 0xf7f;
       adobe_coeff ("Panasonic","DMC-FZ8");
