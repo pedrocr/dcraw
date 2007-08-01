@@ -4468,7 +4468,6 @@ void CLASS get_timestamp (int reversed)
   char str[20];
   int i;
 
-  if (timestamp) return;
   str[19] = 0;
   if (reversed)
     for (i=19; i--; ) str[i] = fgetc(ifp);
