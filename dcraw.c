@@ -6753,6 +6753,9 @@ canon_cr2:
   } else if (!strcmp(model,"D2X")) {
     width -= 8;
     maximum = 0xf35;
+  } else if (!strcmp(model,"D3")) {
+    width -= 4;
+    left_margin = 2;
   } else if (!strcmp(model,"D300")) {
     width -= 32;
   } else if (fsize == 1581060) {
