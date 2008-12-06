@@ -4649,7 +4649,9 @@ get2_256:
       cam_mul[0] = get2() / 256.0;
       cam_mul[2] = get2() / 256.0;
     }
-    if (tag == 0x2010 && type == 13)
+    if ((tag | 0x70) == 0x2070 && type == 4)
+      fseek (ifp, get4()+base, SEEK_SET);
+    if (tag == 0x2010 && type != 7)
       load_raw = &CLASS olympus_e410_load_raw;
     if (tag == 0x2020)
       parse_thumb_note (base, 257, 258);
@@ -5160,6 +5162,7 @@ int CLASS parse_tiff_ifd (int base)
 	break;
       case 50706:			/* DNGVersion */
 	FORC4 dng_version = (dng_version << 8) + fgetc(ifp);
+	if (!make[0]) strcpy (make, "DNG");
 	break;
       case 50710:			/* CFAPlaneColor */
 	if (len > 4) len = 4;
