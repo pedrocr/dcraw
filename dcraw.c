@@ -1676,6 +1676,7 @@ void CLASS hasselblad_load_raw()
 
   if (!ljpeg_start (&jh, 0)) return;
   free (jh.row);
+  order = 0x4949;
   ph1_bits(-1);
   for (row=-top_margin; row < height; row++) {
     pred[0] = pred[1] = 0x8000;
@@ -1689,6 +1690,7 @@ void CLASS hasselblad_load_raw()
 	diff = ph1_bits(len[i]);
 	if ((diff & (1 << (len[i]-1))) == 0)
 	  diff -= (1 << len[i]) - 1;
+	if (diff == 65535) diff = -32768;
 	pred[i] += diff;
 	if (row >= 0 && (unsigned)(col+i) < width)
 	  BAYER(row,col+i) = pred[i];
@@ -5114,6 +5116,7 @@ int CLASS parse_tiff_ifd (int base)
 	ima_len = len;
 	break;
       case 46279:
+	if (!ima_len) break;
 	fseek (ifp, 78, SEEK_CUR);
 	raw_width  = get4();
 	raw_height = get4();
