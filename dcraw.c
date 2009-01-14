@@ -6575,6 +6575,7 @@ void CLASS identify()
     {  6114240, "PENTAX",   "Optio S4"        ,1 },  /* or S4i, CASIO EX-Z4 */
     { 10702848, "PENTAX",   "Optio 750Z"      ,1 },
     { 16098048, "SAMSUNG",  "S85"             ,1 },
+    { 16215552, "SAMSUNG",  "S85"             ,1 },
     { 12582980, "Sinar",    ""                ,0 },
     { 33292868, "Sinar",    ""                ,0 },
     { 44390468, "Sinar",    ""                ,0 } };
@@ -7242,10 +7243,10 @@ konica_400z:
   } else if (!strcmp(model,"S85")) {
     height = 2448;
     width  = 3264;
-    raw_width = 3288;
+    raw_width = fsize/height/2;
     order = 0x4d4d;
     load_raw = &CLASS unpacked_load_raw;
-    maximum = 0xfef8;
+    maximum = 0xffff;
   } else if (!strcmp(model,"STV680 VGA")) {
     height = 484;
     width  = 644;
