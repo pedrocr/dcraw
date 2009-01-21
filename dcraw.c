@@ -5038,6 +5038,9 @@ int CLASS parse_tiff_ifd (int base)
       case 29443:
 	FORC4 cam_mul[c ^ (c < 2)] = get2();
 	break;
+      case 29459:
+	FORC4 cam_mul[c ^ (c >> 1)] = get2();
+	break;
       case 33405:			/* Model2 */
 	fgets (model2, 64, ifp);
 	break;
