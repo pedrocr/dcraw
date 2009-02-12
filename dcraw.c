@@ -5829,10 +5829,10 @@ void CLASS parse_riff()
   end = ftell(ifp) + size;
   if (!memcmp(tag,"RIFF",4) || !memcmp(tag,"LIST",4)) {
     get4();
-    while (ftell(ifp) < end)
+    while (ftell(ifp)+7 < end)
       parse_riff();
   } else if (!memcmp(tag,"nctg",4)) {
-    while (ftell(ifp) < end) {
+    while (ftell(ifp)+7 < end) {
       i = get2();
       size = get2();
       if ((i+1) >> 1 == 10 && size == 20)
