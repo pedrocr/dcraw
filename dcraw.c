@@ -5302,6 +5302,7 @@ void CLASS parse_tiff (int base)
 	max_samp = tiff_ifd[i].samples;
     if (max_samp > 3) max_samp = 3;
     if ((tiff_ifd[i].comp != 6 || tiff_ifd[i].samples != 3) &&
+	(tiff_ifd[i].width | tiff_ifd[i].height) < 0x10000 &&
 	tiff_ifd[i].width*tiff_ifd[i].height > raw_width*raw_height) {
       raw_width     = tiff_ifd[i].width;
       raw_height    = tiff_ifd[i].height;
