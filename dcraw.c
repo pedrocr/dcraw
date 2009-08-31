@@ -7120,7 +7120,7 @@ canon_cr2:
   } else if (!strncmp(model,"D2X",3)) {
     if (width == 3264) width -= 32;
     else width -= 8;
-  } else if (!strcmp(model,"D300")) {
+  } else if (!strncmp(model,"D300",4)) {
     width -= 32;
   } else if (!strcmp(model,"COOLPIX P6000")) {
     load_flags = 24;
