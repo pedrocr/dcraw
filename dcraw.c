@@ -270,7 +270,7 @@ void CLASS derror()
     else
       fprintf (stderr,_("Corrupt data near 0x%llx\n"), (INT64) ftello(ifp));
   }
-  data_error = 1;
+  data_error++;
 }
 
 ushort CLASS sget2 (uchar *s)
@@ -7306,6 +7306,8 @@ konica_400z:
       maximum = 0x3df;
       order = 0x4d4d;
     }
+  } else if (!strcmp(model,"*ist D")) {
+    data_error = -1;
   } else if (!strcmp(model,"*ist DS")) {
     height -= 2;
   } else if (!strcmp(model,"K20D")) {
