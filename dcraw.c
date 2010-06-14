@@ -7439,6 +7439,16 @@ konica_400z:
   } else if (!strcmp(model,"NX10")) {
     height -= top_margin = 4;
     width -= 2 * (left_margin = 8);
+  } else if (!strcmp(model,"EX1")) {
+    order = 0x4949;
+    height = 2760;
+    top_margin = 2;
+    if ((width -= 6) > 3682) {
+      height = 2750;
+      width  = 3668;
+      top_margin = 8;
+    }
+    maximum = 0x3e00;
   } else if (fsize == 20487168) {
     height = 2808;
     width  = 3648;
