@@ -4933,7 +4933,7 @@ int CLASS parse_tiff_ifd (int base)
       case 513:				/* JpegIFOffset */
       case 61447:
 	tiff_ifd[ifd].offset = get4()+base;
-	if (!tiff_ifd[ifd].bps) {
+	if (!tiff_ifd[ifd].bps && tiff_ifd[ifd].offset > 0) {
 	  fseek (ifp, tiff_ifd[ifd].offset, SEEK_SET);
 	  if (ljpeg_start (&jh, 1)) {
 	    tiff_ifd[ifd].comp    = 6;
@@ -7625,18 +7625,22 @@ konica_400z:
     load_flags = 32;
   } else if (!strcmp(model,"EX1")) {
     order = 0x4949;
-    height = 2760;
+    height -= 20;
     top_margin = 2;
     if ((width -= 6) > 3682) {
-      height = 2750;
-      width  = 3668;
+      height -= 10;
+      width  -= 46;
       top_margin = 8;
     }
   } else if (!strcmp(model,"WB2000")) {
     order = 0x4949;
     height -= 3;
-    width -= 10;
     top_margin = 2;
+    if ((width -= 10) > 3718) {
+      height -= 28;
+      width  -= 56;
+      top_margin = 8;
+    }
   } else if (fsize == 20487168) {
     height = 2808;
     width  = 3648;
